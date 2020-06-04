@@ -1,0 +1,30 @@
+<h2>Etidar postagem: </h2>
+<hr>
+{{#each erros}}
+    <div class="alert alert-danger">{{texto}}</div>
+{{else}}
+{{/each}}
+<div class="card">
+    <div class="card_body">
+        <form action="/admin/postagem/edit" method="POST"> 
+              <input type="hidden" name="id" value="{{postagem._id}}">
+              <label for="titulo">Título: </label>  
+              <input type="text" name="titulo" class="form-control" value="{{postagem.titulo}}">
+              <label for="slug">Slug: </label>
+              <input type="text" name="slug" class="form-control" value="{{postagem.slug}}">
+              <label for="descrição">Descrição: </label>
+              <input type="text" name="descrição" class="form-control" value="{{postagem.descrição}}">
+              <label for="conteudo">Conteúdo: </label>
+              <textarea name="conteudo" id="" cols="30" class="form-control" rows="10">{{postagem.conteudo}}</textarea>
+              <label for="categoria">Categoria: </label>
+              <select name="categoria" class="custom-select" id="">
+                  {{#each categorias}}
+                    <option value="{{_id}}">{{nome}}</option>
+                    {{else}}
+                    <option value="0">Nenhuma categoria registrada</option>
+                  {{/each}}
+              </select>
+              <button type="submit" class="btn btn-success mt-3">Editar post</button><br>
+        </form>
+    </div>
+</div>

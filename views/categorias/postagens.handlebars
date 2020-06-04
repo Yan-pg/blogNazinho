@@ -1,0 +1,17 @@
+
+<h2>Postagens recente: </h2>
+
+{{#each postagem}}
+    <div class="card">
+        <div class="car-body">
+            <h3>{{titulo}}</h3>
+            <p>{{descrição}}</p>   
+            <a href="/postagem/{{slug}}"><button class="btn btn-success">Leia mais</button></a>
+            <br>
+            <small>Data de poblicação: {{data}}</small>
+        </div>
+    </div>
+
+{{else}}
+<p>Nenhuma postagem</p>
+{{/each}}
